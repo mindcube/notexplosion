@@ -17,6 +17,7 @@
                     <Note v-for="(note, index) in notes" 
                           v-bind:key="index" 
                           v-bind:note="note"
+                          v-bind:colors="colors"
                           v-on:remove-note="removeNote">
                     </Note>
                 </v-layout>
@@ -44,6 +45,13 @@
                                                 v-model="input.note"
                                                 hint="Enter your note here!">
                                     </v-textarea>
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-select name="input-7-1"
+                                                label="Color"
+                                                v-model="input.color"
+                                                :items="colors">
+                                    </v-select>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -88,11 +96,26 @@ export default {
                 color: 'white'
             },
             colors: [
-                { white: 'white' },
-                { red: '#FFEBEE' },
-                { pink: '#FCE4EC' },
-                { purple: '#F3E5F5' },
-                { indigo: '#E8EAF6' },
+                { 
+                    text: 'white',
+                    value: 'white' 
+                },
+                { 
+                    text: 'red', 
+                    value: '#FFEBEE' 
+                },
+                { 
+                    text: 'pink',
+                    value: '#FCE4EC' 
+                },
+                { 
+                    text: 'purple',
+                    value: '#F3E5F5' 
+                },
+                { 
+                    text: 'indigo',
+                    value: '#E8EAF6' 
+                },
             ]
         }
     },
@@ -102,7 +125,7 @@ export default {
             this.notes.push({
                 title: this.input.title,
                 note: this.input.note,
-                color: this.colors.white
+                color: this.input.color
             })
 
             this.clear()

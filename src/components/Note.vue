@@ -22,8 +22,8 @@
                                 <v-flex xs12>
                                     <v-select name="input-7-1"
                                                 label="Color"
-                                                v-model="note.colors"
-                                                hint="Enter your note here!">
+                                                v-model="note.color"
+                                                :items="colors">
                                     </v-select>
                                 </v-flex>
                             </v-layout>
@@ -61,7 +61,8 @@
 <script>
 export default {
     props: [
-        'note'
+        'note',
+        'colors'
     ],
 
     data() {
