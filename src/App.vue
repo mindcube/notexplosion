@@ -85,7 +85,15 @@ export default {
             input: {
                 note: '',
                 title: '',
+                color: 'white'
             },
+            colors: [
+                { white: 'white' },
+                { red: '#FFEBEE' },
+                { pink: '#FCE4EC' },
+                { purple: '#F3E5F5' },
+                { indigo: '#E8EAF6' },
+            ]
         }
     },
 
@@ -93,7 +101,8 @@ export default {
         submit() {
             this.notes.push({
                 title: this.input.title,
-                note: this.input.note
+                note: this.input.note,
+                color: this.colors.white
             })
 
             this.clear()

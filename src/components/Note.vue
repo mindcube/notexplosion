@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12 sm8 md4>
-        <v-card color="white" class="ma-3">
+        <v-card :color="note.color" class="ma-3">
             <v-responsive :aspect-ratio="16/9">
                 <div v-if="isEditing">
                     <v-card-text>
@@ -18,6 +18,13 @@
                                                 v-model="note.note"
                                                 hint="Enter your note here!">
                                     </v-textarea>
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-select name="input-7-1"
+                                                label="Color"
+                                                v-model="note.colors"
+                                                hint="Enter your note here!">
+                                    </v-select>
                                 </v-flex>
                             </v-layout>
                         </v-container>
